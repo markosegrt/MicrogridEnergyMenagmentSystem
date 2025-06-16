@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace Domain.Models
 {
-    internal class PodsistemPotrosnje
+    public class PodsistemPotrosnje
     {
+        public string Naziv { get; set; } = string.Empty;
+        public string Sifra { get; set; } = string.Empty;
+        public List<Potrosac> AktivniPotrosaci { get; set; } = new List<Potrosac>(); 
     }
 }
