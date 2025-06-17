@@ -11,5 +11,6 @@ namespace Domain.Services
     {
         void ZahtevajPotrosnju(Guid potrosacId, double kolicina);
         void DodajPotrosackiSistem(PodsistemPotrosnje sistem);
+        double VratiZaduzenje(Guid potrosacId);
     }
 }

@@ -1,0 +1,6 @@
+C:\Users\Lenovo\Documents\ers_E01_tim_9\Presentation\obj\Debug\net8.0\Presentation.csproj.AssemblyReference.cache
+C:\Users\Lenovo\Documents\ers_E01_tim_9\Presentation\obj\Debug\net8.0\Presentation.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Lenovo\Documents\ers_E01_tim_9\Presentation\obj\Debug\net8.0\Presentation.AssemblyInfoInputs.cache
+C:\Users\Lenovo\Documents\ers_E01_tim_9\Presentation\obj\Debug\net8.0\Presentation.AssemblyInfo.cs
+C:\Users\Lenovo\Documents\ers_E01_tim_9\Presentation\obj\Debug\net8.0\Presentation.csproj.CoreCompileInputs.cache
+C:\Users\Lenovo\Documents\ers_E01_tim_9\Presentation\obj\Debug\net8.0\Presentation.sourcelink.json

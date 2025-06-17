@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace Services.Snabdevanja
 {
-    internal class KomercijalnoSnabdevanje : ISnabdevanje
+    public class KomercijalnoSnabdevanje : ISnabdevanje
     {
-        private static readonly KomercijalnoSnabdevanje _istanca = new KomercijalnoSnabdevanje();
+        public static readonly KomercijalnoSnabdevanje _istanca  = new KomercijalnoSnabdevanje();
 
         public static KomercijalnoSnabdevanje Istanca => _istanca;
 

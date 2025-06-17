@@ -45,5 +45,13 @@ namespace Services.Potrosnje
             // Evidentiraj
             _evidencija.Zapisi(potrosac, stvarnaKolicina);
         }
+
+        public double VratiZaduzenje(Guid potrosacId)
+        {
+            var p = _podsistemPotrosnje
+                .SelectMany(s => s.AktivniPotrosaci)
+                .FirstOrDefault(p => p.JedinstveniId == potrosacId);
+            return p?.TrenutnoZaduzenje ?? 0;
+        }
     }
 }
