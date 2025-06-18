@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Domain.Models;
+using Domain.Repositories.PotrosaciRepositories;
 using Domain.Services;
 
 namespace Services.Potrosnje
@@ -15,6 +16,9 @@ namespace Services.Potrosnje
         private readonly IOdabirProizvodnje _odabir;
         private readonly List<PodsistemPotrosnje> _podsistemPotrosnje = new();
 
+        // ovde ide repo za podsisteme potrosnje
+        IPotrosaciRepository repo = new PotrosaciRepository();
+
         public Potrosnja(IProizvodnja proizvodnja, IEvidencija evidencija, IOdabirProizvodnje odabir)
         {
             _proizvodnja = proizvodnja;
@@ -22,13 +26,27 @@ namespace Services.Potrosnje
             _odabir = odabir;
         }
 
-        public void DodajPotrosackiSistem(PodsistemPotrosnje sistem)
+        public bool DodajPotrosackiSistem(PodsistemPotrosnje sistem)
         {
-            _podsistemPotrosnje.Add(sistem);
+            // povratna vrednost metode da bude bool
+
+            // i pozivas metode iz repo
+            return repo.DodajPotrosaca(potrosac);
+           // _podsistemPotrosnje.Add(sistem);
         }
 
+        // povratna vrednost npr double, -1 znaci da potrosac ne postoji npr
+        // a ne negativna vrendnost klk je potrosio
         public void ZahtevajPotrosnju(Guid potrosacId, double kolicina)
         {
+            // koristis repo
+            Potrosac trazeni = repo.PotrosacPoId(potrosacId);
+
+            if (trazeni.ImePrezime == string.Empty)
+                return -1;
+
+            return trazeni.UkupnaPotrosnja;
+
             var potrosac = _podsistemPotrosnje
                .SelectMany(s => s.AktivniPotrosaci)
                .FirstOrDefault(p => p.JedinstveniId == potrosacId);
