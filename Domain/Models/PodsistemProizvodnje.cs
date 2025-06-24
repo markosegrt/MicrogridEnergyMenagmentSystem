@@ -1,9 +1,4 @@
 ﻿using Domain.Enums;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Domain.Models
 {
@@ -14,5 +9,16 @@ namespace Domain.Models
         public string Lokacija { get; set; } = string.Empty;
         public double PreostalaKolicina { get; set; }
 
-}
+        public PodsistemProizvodnje()
+        {
+        }
+
+        public PodsistemProizvodnje(string sifra, Tip_Proizvodnje tip, string lokacija, double preostalaKolicina)
+        {
+            Sifra = sifra;
+            Tip = tip;
+            Lokacija = lokacija;
+            PreostalaKolicina = preostalaKolicina;
+        }
+    }
 }

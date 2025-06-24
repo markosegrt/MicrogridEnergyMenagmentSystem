@@ -1,10 +1,5 @@
 ﻿using Domain.Enums;
 using Domain.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Domain.Repositories.PotrosaciRepositories
 {
@@ -35,9 +30,9 @@ namespace Domain.Repositories.PotrosaciRepositories
 
         public Potrosac PotrosacPoId(Guid id)
         {
-            foreach(var p in potrosaci)
+            foreach (var p in potrosaci)
             {
-                if(p.JedinstveniId == id) 
+                if (p.JedinstveniId == id)
                     return p;
             }
 
