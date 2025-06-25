@@ -10,9 +10,9 @@ namespace Domain.Repositories.PotrosaciRepositories
         static PotrosaciRepository()
         {
             potrosaci = [
-                new ("Milan Nikolić", "UG-001", Tip_Snabdevanja.KOMERCIJALNO, 0, 0),
-                new ("Sinan Nikolić", "UG-002", Tip_Snabdevanja.GARANTOVANO, 0, 0),
-                new ("Ana Nikolić", "UG-003", Tip_Snabdevanja.KOMERCIJALNO, 0, 0),
+                new ("Milan Nikolic", "UG-001", Tip_Snabdevanja.KOMERCIJALNO, 0, 0),
+                new ("Sinan Nikolic", "UG-002", Tip_Snabdevanja.GARANTOVANO, 0, 0),
+                new ("Ana Nikolic", "UG-003", Tip_Snabdevanja.KOMERCIJALNO, 0, 0),
             ];
         }
 

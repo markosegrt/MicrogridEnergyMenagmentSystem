@@ -31,7 +31,7 @@ namespace Presentation
             var evidencijaServis = new EvidencijaUListiServis();  // ili EvidencijaUDatoteciServis
             var potrosnjaServis = new PotrosnjaServis(
                                         proizvodnjaServis,
-                                        evidencijaServis,
+                                        //evidencijaServis,
                                         potrosaciRepo
                                     );
             var potrosacServis = new PotrosacServis();

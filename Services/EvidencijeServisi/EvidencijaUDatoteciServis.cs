@@ -5,14 +5,14 @@ namespace Services.EvidencijeServisi
 {
     public class EvidencijaUDatoteciServis : IEvidencijaServis
     {
-        private const string Putanja = "C:\\Users\\Lenovo\\Desktop\\evidencija.txt";
+        private const string Putanja = "evidencija.txt";
 
         public bool Zapisi(double kolicina)
         {
             try
             {
                 string vreme = DateTime.Now.ToString("dd.MM.yyyy HH:mm");
-                string unos = $"{vreme}: Издато је {kolicina} kW.";
+                string unos = $"{vreme}: Izdato je {kolicina} kW.";
                 File.AppendAllText(Putanja, unos + Environment.NewLine);
                 Console.WriteLine($"[FAJL] {unos}");
                 return true;

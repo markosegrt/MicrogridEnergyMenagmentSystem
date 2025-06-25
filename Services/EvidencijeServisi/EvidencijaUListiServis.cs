@@ -16,8 +16,8 @@ namespace Services.EvidencijeServisi
             try
             {
                 string vreme = DateTime.Now.ToString("dd.MM.yyyy HH:mm");
-                string unos = $"{vreme}: Издато је {kolicina} kW.";
-
+                string unos = $"{vreme}: Izdato je {kolicina} kW.";
+                Console.WriteLine($"[LISTA] {unos}");
                 evidencija.DodajEvidenciju(unos);
 
                 return true;

@@ -32,10 +32,10 @@ namespace Presentation.Screens
                         PregledPotrosacaScreen.Prikazi(potrosaciRepo);
                         break;
                     case "3":
-                        ZahtevScreen.Prikazi(korisnik, potrosnjaServis);
+                        ZahtevZaPotrosnjomScreen.Prikazi(potrosaciRepo, potrosnjaServis);
                         break;
                     case "4":
-                        ZaduzenjeScreen.Prikazi(korisnik, potrosnjaServis, potrosaciRepo);
+                        ZaduzenjeScreen.Prikazi(potrosaciRepo, potrosnjaServis);
                         break;
                     case "5":
                         return;

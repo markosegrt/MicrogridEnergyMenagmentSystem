@@ -10,8 +10,8 @@ namespace Domain.Repositories.ProizvodnjaRepositories
         static ProizvodnjaRepository()
         {
             podsistemi = [
-                new ("NS-001", Tip_Proizvodnje.ECOGREEN, "Novi Sad", 1000),
-                new ("BG-002", Tip_Proizvodnje.CVRSTOGORIVO, "Beograd", 1500),
+                new ("NS-001", Tip_Proizvodnje.ECOGREEN, "Novi Sad", 90),
+                new ("BG-002", Tip_Proizvodnje.CVRSTOGORIVO, "Beograd", 15),
                 new ("DJ-003", Tip_Proizvodnje.HIDROELEKTRANA, "Djerdap", 1400),
                 ];
         }

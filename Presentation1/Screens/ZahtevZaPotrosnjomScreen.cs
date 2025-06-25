@@ -1,9 +1,10 @@
-﻿using Domain.Repositories.PotrosaciRepositories;
+﻿using Domain.Models;
+using Domain.Repositories.PotrosaciRepositories;
 using Domain.Services;
 
 namespace Presentation.Screens
 {
-    public static class ZaduzenjeScreen
+    public static class ZahtevZaPotrosnjomScreen
     {
         public static void Prikazi(
             IPotrosaciRepository potrosaciRepo,
@@ -26,18 +27,26 @@ namespace Presentation.Screens
             var korisnik = potrosaciRepo
                 .SviPotrosaci()
                 .FirstOrDefault(p =>
-                    string.Equals(p.ImePrezime?.Trim(), ime, StringComparison.OrdinalIgnoreCase) &&
-                    p.BrPotrosackogUgovora?.Trim() == ugovor);
+                        string.Equals(p.ImePrezime?.Trim(), ime, StringComparison.OrdinalIgnoreCase) &&
+                        p.BrPotrosackogUgovora?.Trim() == ugovor);
 
             if (korisnik == null)
             {
-                Console.WriteLine("Korisnik nije pronadjen.");
+                Console.WriteLine("Korisnik nije pronađen. Pritisnite ENTER za povratak.");
                 Console.ReadLine();
                 return;
             }
 
-            var iznos = potrosnjaServis.VratiZaduzenje(korisnik.JedinstveniId);
-            Console.WriteLine($"Zaduženje za {korisnik.ImePrezime}: {iznos} RSD");
+            Console.Write("Unesite količinu (kWh): ");
+            if (!double.TryParse(Console.ReadLine(), out var kolicina) || kolicina <= 0)
+            {
+                Console.WriteLine("Neispravan unos količine.");
+                Console.ReadLine();
+                return;
+            }
+
+            var ok = potrosnjaServis.ZahtevajPotrosnju(korisnik.JedinstveniId, kolicina);
+            Console.WriteLine(ok ? "Zahtev uspešno obrađen." : "Greška pri obradi zahteva.");
             Console.ReadLine();
         }
     }

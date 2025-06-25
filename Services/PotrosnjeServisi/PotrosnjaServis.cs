@@ -1,6 +1,7 @@
 ﻿using Domain.Enums;
 using Domain.Repositories.PotrosaciRepositories;
 using Domain.Services;
+using Services.EvidencijeServisi;
 
 
 namespace Services.PotrosnjeServisi
@@ -8,13 +9,13 @@ namespace Services.PotrosnjeServisi
     public class PotrosnjaServis : IPotrosnjaServis
     {
         private readonly IProizvodnjaServis _proizvodnja;
-        private readonly IEvidencijaServis _evidencija;
+        //private readonly IEvidencijaServis _evidencija;
         private readonly IPotrosaciRepository _repo;
 
-        public PotrosnjaServis(IProizvodnjaServis proizvodnja, IEvidencijaServis evidencija, IPotrosaciRepository repo)
+        public PotrosnjaServis(IProizvodnjaServis proizvodnja, IPotrosaciRepository repo)//, IEvidencijaServis evidencija
         {
             _proizvodnja = proizvodnja;
-            _evidencija = evidencija;
+            //_evidencija = evidencija;
             _repo = repo;
         }
 
@@ -23,33 +24,39 @@ namespace Services.PotrosnjeServisi
             double cenaPoKWH = 0;
             var potrosac = _repo.PotrosacPoId(potrosacId);
 
-            if (potrosac == null || potrosac.ImePrezime == string.Empty)
+            if (potrosac == null || string.IsNullOrWhiteSpace(potrosac.ImePrezime))
                 return false;
 
-            if (_proizvodnja.ObradiZahtev(kolicina))//njema vraca bool a tebi kolicinu
+            if (_proizvodnja.ObradiZahtev(kolicina))
             {
                 potrosac.UkupnaPotrosnja += kolicina;
 
-                if(potrosac.TipSnabdevanja == Tip_Snabdevanja.KOMERCIJALNO)
+                IEvidencijaServis evidencijaServis;
+
+                if (potrosac.TipSnabdevanja == Tip_Snabdevanja.KOMERCIJALNO)
                 {
                     cenaPoKWH = 43.02;
                     potrosac.TrenutnoZaduzenje += kolicina * cenaPoKWH;
-
-                    _evidencija.Zapisi(kolicina);
-
+                    evidencijaServis = new EvidencijaUListiServis();
                 }
-                else if(potrosac.TipSnabdevanja == Tip_Snabdevanja.GARANTOVANO)
+                else if (potrosac.TipSnabdevanja == Tip_Snabdevanja.GARANTOVANO)
                 {
                     cenaPoKWH = 22.72;
                     potrosac.TrenutnoZaduzenje += kolicina * cenaPoKWH;
-
-                    _evidencija.Zapisi(kolicina);
+                    evidencijaServis = new EvidencijaUDatoteciServis();
+                }
+                else
+                {
+                    evidencijaServis = new EvidencijaUListiServis(); // fallback
                 }
 
+                evidencijaServis.Zapisi(kolicina);
                 return true;
             }
+
             return false;
         }
+
 
         public double VratiZaduzenje(Guid potrosacId)
         {
