@@ -5,5 +5,7 @@ namespace Domain.Services
     public interface IEvidencijaServis
     {
         bool Zapisi(double kolicina);
+
+        public string VratiEvidenciju();
     }
 }

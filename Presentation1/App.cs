@@ -17,24 +17,24 @@ namespace Presentation
         {
             Console.Title = "ERS Mikro Mreža";
 
-            // 1) Repozitorijumi
+            //Repozitorijumi
             var potrosaciRepo = new PotrosaciRepository();
             var proizvodnjaRepo = new ProizvodnjaRepository();
             var evidencijaRepo = new EvidencijaRepository();
 
-            // 2) Servisi
+            //Servisi
             var snabGarant = new GarantovanoSnabdevanjeServis();
             var snabKom = new KomercijalnoSnabdevanjeServis();
-            var snabdevanje = snabKom; // može i snabGarant ili switch prema izboru
+            var snabdevanje = snabKom;
 
             var proizvodnjaServis = new ProizvodnjaServis(snabdevanje);
-            var evidencijaServis = new EvidencijaUListiServis();  // ili EvidencijaUDatoteciServis
+            //var evidencijaServis = new EvidencijaUListiServis();  // ili EvidencijaUDatoteciServis
             var potrosnjaServis = new PotrosnjaServis(
                                         proizvodnjaServis,
                                         //evidencijaServis,
                                         potrosaciRepo
                                     );
-            var potrosacServis = new PotrosacServis();
+            var potrosacServis = new PotrosacServis(potrosaciRepo);
 
             // 3) Počni UI
             AutentifikacijaScreen.Prikazi(potrosaciRepo, potrosnjaServis);

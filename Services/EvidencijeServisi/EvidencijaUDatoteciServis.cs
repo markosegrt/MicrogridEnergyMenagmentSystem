@@ -23,5 +23,20 @@ namespace Services.EvidencijeServisi
                 return false;
             }
         }
+
+        public string VratiEvidenciju()
+        {
+            try
+            {
+                if (!File.Exists(Putanja))
+                    return "[FAJL] Datoteka evidencije ne postoji.";
+
+                return File.ReadAllText(Putanja);
+            }
+            catch (Exception ex)
+            {
+                return $"[GREŠKA] Neuspešno čitanje evidencije: {ex.Message}";
+            }
+        }
     }
 }

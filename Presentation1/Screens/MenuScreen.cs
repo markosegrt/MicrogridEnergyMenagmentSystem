@@ -26,7 +26,7 @@ namespace Presentation.Screens
                 switch (izbor)
                 {
                     case "1":
-                        UnosPotrosacaScreen.Prikazi(potrosaciRepo, potrosacServis: new PotrosacServis());
+                        UnosPotrosacaScreen.Prikazi(potrosaciRepo, potrosacServis: new PotrosacServis(potrosaciRepo));
                         break;
                     case "2":
                         PregledPotrosacaScreen.Prikazi(potrosaciRepo);

@@ -1,5 +1,4 @@
-﻿
-using Domain.Models;
+﻿using Domain.Models;
 using Domain.Services;
 using Domain.Repositories.PotrosaciRepositories;
 
@@ -7,13 +6,16 @@ namespace Services.PotrosacServisi
 {
     public class PotrosacServis:IPotrosacServis
     {
-        private readonly IPotrosaciRepository potrosaci = new PotrosaciRepository();
+        private readonly IPotrosaciRepository _potrosaci;
 
-        public PotrosacServis() { }
+        public PotrosacServis(IPotrosaciRepository potrosaci)
+        {
+            _potrosaci = potrosaci;
+        }
 
         public bool DodajNovogPotrosaca(Potrosac potrosac)
         {
-            return potrosaci.DodajPotrosaca(potrosac);
+            return _potrosaci.DodajPotrosaca(potrosac);
         }
     }
 }

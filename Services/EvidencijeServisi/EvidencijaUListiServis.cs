@@ -11,6 +11,11 @@ namespace Services.EvidencijeServisi
 
         public EvidencijaUListiServis() { }
 
+        public EvidencijaUListiServis(IEvidencijaRepository evidencija)
+        {
+            this.evidencija = evidencija;
+        }
+
         public bool Zapisi(double kolicina)
         {
             try

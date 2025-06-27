@@ -9,7 +9,7 @@ namespace Services.PotrosnjeServisi
     public class PotrosnjaServis : IPotrosnjaServis
     {
         private readonly IProizvodnjaServis _proizvodnja;
-        //private readonly IEvidencijaServis _evidencija;
+        IEvidencijaServis? evidencijaServis;
         private readonly IPotrosaciRepository _repo;
 
         public PotrosnjaServis(IProizvodnjaServis proizvodnja, IPotrosaciRepository repo)//, IEvidencijaServis evidencija
@@ -31,7 +31,7 @@ namespace Services.PotrosnjeServisi
             {
                 potrosac.UkupnaPotrosnja += kolicina;
 
-                IEvidencijaServis evidencijaServis;
+                
 
                 if (potrosac.TipSnabdevanja == Tip_Snabdevanja.KOMERCIJALNO)
                 {

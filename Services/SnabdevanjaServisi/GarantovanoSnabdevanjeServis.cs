@@ -10,6 +10,11 @@ namespace Services.SnabdevanjaServisi
 
         public GarantovanoSnabdevanjeServis(){}
 
+        public GarantovanoSnabdevanjeServis(IProizvodnjaRepository proizvodnja)
+        {
+            _proizvodnja = proizvodnja;
+        }
+
         public bool DopuniEnergiju()
         {
             var proizvodnje = _proizvodnja.Svi();

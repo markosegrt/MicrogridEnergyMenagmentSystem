@@ -11,6 +11,11 @@ namespace Services.SnabdevanjaServisi
 
         public KomercijalnoSnabdevanjeServis() { }
 
+        public KomercijalnoSnabdevanjeServis(IProizvodnjaRepository proizvodnja)
+        {
+            _proizvodnja = proizvodnja;
+        }
+
         public bool DopuniEnergiju()
         {
             var proizvodnje = _proizvodnja.Svi();
