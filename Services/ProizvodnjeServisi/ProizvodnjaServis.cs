@@ -1,15 +1,13 @@
-﻿using Domain.Models;
-using Domain.Repositories.ProizvodnjaRepositories;
+﻿using Domain.PomocneMetode;
 using Domain.Services;
-using Domain.PomocneMetode;
 
 namespace Services.ProizvodnjeServisi
 {
     public class ProizvodnjaServis : IProizvodnjaServis
     {
-        
+
         private readonly ISnabdevanjeServis _snabdevanje;
-      
+
 
         public ProizvodnjaServis(ISnabdevanjeServis snabdevanje)
         {
@@ -25,7 +23,7 @@ namespace Services.ProizvodnjeServisi
                 _snabdevanje.DopuniEnergiju();
             }
             return _snabdevanje.IzdajEnergiju(kolicina);
-            
+
         }
     }
 }

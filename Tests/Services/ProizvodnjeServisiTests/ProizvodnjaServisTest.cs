@@ -38,9 +38,10 @@ namespace Tests.Services.ProizvodnjeServisiTests
             Assert.That(rezultat, Is.False);
         }
 
-        [TestCase(0)]      // granična vrednost
-        [TestCase(0.0001)] // granična - vrlo mala količina
-        [TestCase(999999)] // granična - jako velika količina
+        //Granicni
+        [TestCase(0)]
+        [TestCase(0.0001)]
+        [TestCase(999999)]
         public void ObradiZahtev_GranicneVrednosti(double kolicina)
         {
             _mockSnabdevanje.Setup(x => x.IzdajEnergiju(It.IsAny<double>())).Returns(true);

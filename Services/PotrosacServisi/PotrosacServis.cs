@@ -1,10 +1,10 @@
 ﻿using Domain.Models;
-using Domain.Services;
 using Domain.Repositories.PotrosaciRepositories;
+using Domain.Services;
 
 namespace Services.PotrosacServisi
 {
-    public class PotrosacServis:IPotrosacServis
+    public class PotrosacServis : IPotrosacServis
     {
         private readonly IPotrosaciRepository _potrosaci;
 

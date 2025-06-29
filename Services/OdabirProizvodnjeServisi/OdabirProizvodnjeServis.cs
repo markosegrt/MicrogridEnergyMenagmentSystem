@@ -1,6 +1,6 @@
 ﻿using Domain.Models;
-using Domain.Services;
 using Domain.Repositories.ProizvodnjaRepositories;
+using Domain.Services;
 
 namespace Services.OdabirProizvodnjeServisi
 

@@ -1,6 +1,5 @@
-﻿using Domain.Services;
-using Domain.Repositories.EvidencijaRepositories;
-using System.Collections.Generic;
+﻿using Domain.Repositories.EvidencijaRepositories;
+using Domain.Services;
 using System.Text;
 
 namespace Services.EvidencijeServisi
@@ -27,7 +26,7 @@ namespace Services.EvidencijeServisi
 
                 return true;
             }
-            catch 
+            catch
             {
                 return false;
             }
@@ -38,13 +37,13 @@ namespace Services.EvidencijeServisi
             var evidencije = evidencija.VratiEvidenciju();
             StringBuilder izlaz = new StringBuilder();
 
-            foreach(string e in evidencije)
+            foreach (string e in evidencije)
             {
                 izlaz.AppendLine(e);
             }
             return izlaz.ToString();
 
         }
-       
+
     }
 }

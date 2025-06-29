@@ -1,13 +1,11 @@
-﻿using Domain.Repositories.PotrosaciRepositories;
+﻿using Domain.Repositories.EvidencijaRepositories;
+using Domain.Repositories.PotrosaciRepositories;
 using Domain.Repositories.ProizvodnjaRepositories;
-using Domain.Repositories.EvidencijaRepositories;
-using Services.SnabdevanjaServisi;
-using Services.ProizvodnjeServisi;
-using Services.PotrosnjeServisi;
-using Services.PotrosacServisi;
-using Services.EvidencijeServisi;
 using Presentation.Screens;
-using Domain.Services;
+using Services.PotrosacServisi;
+using Services.PotrosnjeServisi;
+using Services.ProizvodnjeServisi;
+using Services.SnabdevanjaServisi;
 
 namespace Presentation
 {

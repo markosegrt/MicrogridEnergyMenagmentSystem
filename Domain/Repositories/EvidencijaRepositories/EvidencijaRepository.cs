@@ -1,10 +1,6 @@
-﻿
-
-using Domain.Services;
-
-namespace Domain.Repositories.EvidencijaRepositories
+﻿namespace Domain.Repositories.EvidencijaRepositories
 {
-    public class EvidencijaRepository:IEvidencijaRepository
+    public class EvidencijaRepository : IEvidencijaRepository
     {
         private static readonly List<string> _evidencija = new();
 
@@ -16,7 +12,7 @@ namespace Domain.Repositories.EvidencijaRepositories
                 return false;
             else
                 _evidencija.Add(evidencija);
-                return true;
+            return true;
         }
 
         public IEnumerable<string> VratiEvidenciju()

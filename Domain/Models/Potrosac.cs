@@ -4,7 +4,7 @@ namespace Domain.Models
 {
     public class Potrosac
     {
-      
+
 
         // public string JedinstveniId { get; set; } = string.Empty;
         public Guid JedinstveniId { get; set; } = Guid.NewGuid();

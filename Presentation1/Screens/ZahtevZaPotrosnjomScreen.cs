@@ -1,5 +1,4 @@
-﻿using Domain.Models;
-using Domain.Repositories.PotrosaciRepositories;
+﻿using Domain.Repositories.PotrosaciRepositories;
 using Domain.Services;
 
 namespace Presentation.Screens

@@ -11,7 +11,7 @@ namespace Tests.Services.PotrosnjeServisiTests
     [TestFixture]
     public class PotrosnjaServisTest
     {
-        private Mock<IProizvodnjaServis> _mockProizvodnja = new(); 
+        private Mock<IProizvodnjaServis> _mockProizvodnja = new();
         private Mock<IPotrosaciRepository> _mockRepo = new();
         private PotrosnjaServis _servis = null!;
 
@@ -23,7 +23,7 @@ namespace Tests.Services.PotrosnjeServisiTests
             _servis = new PotrosnjaServis(_mockProizvodnja.Object, _mockRepo.Object);
         }
 
-        // 1. BAZIČNI SLUČAJ – uspešno snabdevanje komercijalnog potrošača
+        // Bazicni
         [Test]
         public void ZahtevajPotrosnju_KomercijalniPotrosac_Uspesno()
         {
@@ -39,7 +39,7 @@ namespace Tests.Services.PotrosnjeServisiTests
             Assert.AreEqual(4302, potrosac.TrenutnoZaduzenje, 0.01);
         }
 
-        // 2. BAZIČNI SLUČAJ – uspešno snabdevanje garantovanog potrošača
+
         [Test]
         public void ZahtevajPotrosnju_GarantovaniPotrosac_Uspesno()
         {
@@ -55,7 +55,7 @@ namespace Tests.Services.PotrosnjeServisiTests
             Assert.AreEqual(1136, potrosac.TrenutnoZaduzenje, 0.01);
         }
 
-        // 3. GRAČNI SLUČAJ – potrošač ne postoji
+        // Granicni
         [Test]
         public void ZahtevajPotrosnju_PotrosacNePostoji_VracaFalse()
         {
@@ -64,7 +64,6 @@ namespace Tests.Services.PotrosnjeServisiTests
             Assert.IsFalse(rezultat);
         }
 
-        // 4. GRAČNI SLUČAJ – neuspešno snabdevanje (nema energije)
         [Test]
         public void ZahtevajPotrosnju_NemaEnergije_VracaFalse()
         {
@@ -78,7 +77,7 @@ namespace Tests.Services.PotrosnjeServisiTests
             Assert.IsFalse(rezultat);
         }
 
-        // 5. PROIZVOLJAN SLUČAJ – zahtev za 0 kWh
+        //proizvoljni
         [Test]
         public void ZahtevajPotrosnju_NulaKilovata_VracaTrue()
         {
@@ -92,7 +91,7 @@ namespace Tests.Services.PotrosnjeServisiTests
             Assert.AreEqual(0, potrosac.TrenutnoZaduzenje);
         }
 
-        // 6. PROIZVOLJAN SLUČAJ – proveri zaduženje ako potrošač ne postoji
+
         [Test]
         public void VratiZaduzenje_PotrosacNePostoji_VracaNulu()
         {
@@ -103,7 +102,7 @@ namespace Tests.Services.PotrosnjeServisiTests
             Assert.AreEqual(0, rezultat);
         }
 
-        // 7. BAZIČNI SLUČAJ – proveri zaduženje validnog potrošača
+        //Bazicni
         [Test]
         public void VratiZaduzenje_ValidanPotrosac()
         {
@@ -115,7 +114,7 @@ namespace Tests.Services.PotrosnjeServisiTests
             Assert.AreEqual(1234.56, rezultat);
         }
 
-        // 8. GRAČNI SLUČAJ – negativna količina (ne bi trebalo da se desi)
+        // Granicni
         [Test]
         public void ZahtevajPotrosnju_NegativnaKolicina_VracaFalse()
         {
@@ -129,7 +128,7 @@ namespace Tests.Services.PotrosnjeServisiTests
             Assert.IsFalse(rezultat);
         }
 
-        // 9. GRAČNI SLUČAJ – potrošač sa praznim imenom (nevalidan)
+
         [Test]
         public void ZahtevajPotrosnju_PraznoIme_VracaFalse()
         {
@@ -141,7 +140,7 @@ namespace Tests.Services.PotrosnjeServisiTests
             Assert.IsFalse(rezultat);
         }
 
-        // 10. PROIZVOLJAN SLUČAJ – potrošač ima već postojeće zaduženje
+        // Proizvoljni
         [Test]
         public void ZahtevajPotrosnju_PotrosacImaZaduzenje_DodajeNaPostojece()
         {

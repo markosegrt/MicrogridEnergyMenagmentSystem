@@ -13,7 +13,7 @@
         {
             Naziv = naziv;
             Sifra = sifra;
-            
+
         }
     }
 }

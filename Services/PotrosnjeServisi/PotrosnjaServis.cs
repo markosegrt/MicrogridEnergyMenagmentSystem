@@ -31,7 +31,7 @@ namespace Services.PotrosnjeServisi
             {
                 potrosac.UkupnaPotrosnja += kolicina;
 
-                
+
 
                 if (potrosac.TipSnabdevanja == Tip_Snabdevanja.KOMERCIJALNO)
                 {

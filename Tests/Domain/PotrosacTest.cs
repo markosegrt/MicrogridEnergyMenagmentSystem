@@ -1,5 +1,5 @@
-﻿using Domain.Models;
-using Domain.Enums;
+﻿using Domain.Enums;
+using Domain.Models;
 using NUnit.Framework;
 
 namespace Tests.Domain
@@ -33,10 +33,10 @@ namespace Tests.Domain
             Assert.That(potrosac.TrenutnoZaduzenje, Is.EqualTo(0));
         }
 
-        // 🔵 Proizvoljni testovi za ekstremne vrednosti
+        // za ekstremne vrednosti
         [TestCase("Marko Markovic", "UG-999", Tip_Snabdevanja.KOMERCIJALNO, -100, 0)]
         [TestCase("Maja Majic", "UG-123", Tip_Snabdevanja.GARANTOVANO, 0, -250)]
-        [TestCase("Test Testic", "UG-001", (Tip_Snabdevanja)999, 100, 200)] // nepostojeći enum
+        [TestCase("Test Testic", "UG-001", (Tip_Snabdevanja)999, 100, 200)] // nepostojeci enum
         [TestCase("", "", Tip_Snabdevanja.KOMERCIJALNO, 500000, 999999)]     // ekstremno veliki iznosi
         [TestCase("Ana Anaic", "UG-000", Tip_Snabdevanja.GARANTOVANO, double.MaxValue, double.MinValue)]
         public void Potrosac_ProizvoljniTestovi(string ime, string ugovor, Tip_Snabdevanja tip, double ukupno, double zaduzenje)

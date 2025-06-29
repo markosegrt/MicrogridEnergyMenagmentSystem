@@ -1,8 +1,8 @@
-﻿using Domain.Models;
-using Domain.Enums;
+﻿using Domain.Enums;
+using Domain.Models;
 using Domain.Repositories.ProizvodnjaRepositories;
-using NUnit.Framework;
 using Moq;
+using NUnit.Framework;
 using Services.SnabdevanjaServisi;
 
 namespace Tests.Services.SnabdevanjeServisiTests

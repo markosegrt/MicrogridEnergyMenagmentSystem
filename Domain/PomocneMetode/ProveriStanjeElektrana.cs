@@ -12,7 +12,7 @@ namespace Domain.PomocneMetode
             var proizvodnja = _proizvodnjaRepository.Svi();
             foreach (PodsistemProizvodnje p in proizvodnja)
             {
-                if(p.PreostalaKolicina <100)
+                if (p.PreostalaKolicina < 100)
                     return true;
             }
             return false;

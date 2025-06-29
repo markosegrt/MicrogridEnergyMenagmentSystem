@@ -1,7 +1,6 @@
 ﻿using Domain.Enums;
 using Domain.Models;
 using Domain.Repositories.PotrosaciRepositories;
-using Services.PotrosnjeServisi;
 using Moq;
 using NUnit.Framework;
 using Services.PotrosacServisi;
@@ -21,9 +20,8 @@ namespace Tests.Services.PotrosacServisiTests
             _servis = new PotrosacServis(_mockRepo.Object);
         }
 
-        // -------------------------
-        // ✅ BAZIČNI SLUČAJEVI
-        // -------------------------
+        // bazicni
+
         [Test]
         public void DodajNovogPotrosaca_ValidanPotrosac_VracaTrue()
         {
@@ -68,9 +66,7 @@ namespace Tests.Services.PotrosacServisiTests
             Assert.IsFalse(rezultat);
         }
 
-        // -------------------------
-        // ✅ GRANIČNI SLUČAJEVI
-        // -------------------------
+        //Granicni
         [Test]
         public void DodajNovogPotrosaca_GranicaDugovanja0_VracaTrue()
         {
@@ -125,9 +121,7 @@ namespace Tests.Services.PotrosacServisiTests
             Assert.IsTrue(_servis.DodajNovogPotrosaca(potrosac));
         }
 
-        // -------------------------
-        // ✅ PROIZVOLJNI SLUČAJEVI
-        // -------------------------
+        // Proizvoljni
         [Test]
         public void DodajNovogPotrosaca_ProizvoljniSlucaj1()
         {

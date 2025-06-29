@@ -3,7 +3,6 @@ using Domain.Services;
 using Moq;
 using NUnit.Framework;
 using Services.EvidencijeServisi;
-using System;
 
 namespace Tests.Services.EvidencijeServisiTests
 {
@@ -20,7 +19,7 @@ namespace Tests.Services.EvidencijeServisiTests
             _servis = new EvidencijaUListiServis(_mockRepo.Object);
         }
 
-        // ✅ BAZIČNI SLUČAJEVI
+        //bazicni slucaj
 
         [Test]
         public void Zapisi_ValidnaKolicina_VracaTrue()
@@ -51,10 +50,10 @@ namespace Tests.Services.EvidencijeServisiTests
         {
             _mockRepo.Setup(r => r.DodajEvidenciju(It.IsAny<string>())).Returns(false);
             bool rezultat = _servis.Zapisi(200);
-            Assert.That(rezultat, Is.True); // i dalje se vraća true jer ne proveravamo rezultat DodajEvidenciju
+            Assert.That(rezultat, Is.True);
         }
 
-        // ✅ GRANIČNI SLUČAJEVI
+        //Granicni
 
         [TestCase(double.MaxValue)]
         [TestCase(double.MinValue)]
@@ -69,7 +68,7 @@ namespace Tests.Services.EvidencijeServisiTests
             Assert.That(rezultat, Is.True);
         }
 
-        // ✅ PROIZVOLJNI SLUČAJEVI
+        //Dodatni slucajevi
 
         [Test]
         public void VratiEvidenciju_VracaFormatiranTekst()

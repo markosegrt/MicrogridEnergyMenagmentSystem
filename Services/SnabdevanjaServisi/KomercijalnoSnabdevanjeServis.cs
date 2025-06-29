@@ -19,7 +19,7 @@ namespace Services.SnabdevanjaServisi
         public bool DopuniEnergiju()
         {
             var proizvodnje = _proizvodnja.Svi();
-            foreach(PodsistemProizvodnje p in proizvodnje)
+            foreach (PodsistemProizvodnje p in proizvodnje)
             {
                 if (p.PreostalaKolicina < 100)
                 {
@@ -37,7 +37,7 @@ namespace Services.SnabdevanjaServisi
             if (najbolji == null)
                 return false;
 
-            if(najbolji.PreostalaKolicina >= kolicina)
+            if (najbolji.PreostalaKolicina >= kolicina)
             {
                 najbolji.PreostalaKolicina -= kolicina;
                 najbolji.PreostalaKolicina = najbolji.PreostalaKolicina * 0.99;
@@ -45,7 +45,7 @@ namespace Services.SnabdevanjaServisi
                 return true;
             }
 
-            return false ;
+            return false;
         }
 
     }

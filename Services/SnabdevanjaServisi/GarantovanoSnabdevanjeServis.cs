@@ -8,7 +8,7 @@ namespace Services.SnabdevanjaServisi
     {
         private readonly IProizvodnjaRepository _proizvodnja = new ProizvodnjaRepository();
 
-        public GarantovanoSnabdevanjeServis(){}
+        public GarantovanoSnabdevanjeServis() { }
 
         public GarantovanoSnabdevanjeServis(IProizvodnjaRepository proizvodnja)
         {

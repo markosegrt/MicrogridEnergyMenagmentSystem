@@ -1,5 +1,4 @@
-﻿using Domain.Models;
-using Domain.Services;
+﻿using Domain.Services;
 
 namespace Services.EvidencijeServisi
 {

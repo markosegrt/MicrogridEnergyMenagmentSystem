@@ -4,7 +4,7 @@
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Radni direktorijum: "+ System.IO.Directory.GetCurrentDirectory());
+            Console.WriteLine("Radni direktorijum: " + System.IO.Directory.GetCurrentDirectory());
             Presentation.App.Run();
         }
     }
