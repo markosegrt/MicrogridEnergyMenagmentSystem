@@ -1,0 +1,1 @@
+Developed a simplified microgrid energy system in C#, focusing on applying object-oriented principles, SOLID design, and common design patterns. Implemented unit tests to ensure code quality and stability.
